@@ -1,7 +1,5 @@
 (function(Backbone, _, $, undefined) {
-	"use strict";
-	
-	var defaultOptions = ['target'];
+	'use strict';
 	
 	Backbone.Abide = function(options) {
 		this.cid = _.uniqueId('view');
@@ -9,12 +7,6 @@
 		this._ensureElement();
 		this.initialize.apply(this, arguments);
 		this.delegateEvents();
-		
-		//This needs to be moved out. Can't reference app in a library
-		var self = this;
-		if(self.timeSession) {
-			self.initializeSession();
-		}
 	};
 	Backbone.Abide.extend = Backbone.View.extend;
 	
@@ -37,7 +29,7 @@
 			self.trigger('validating', self);
 			if(self.isValid() !== true) {
 				//Use a _.deferred() here?
-				self.trigger('validationFailed');
+				self.trigger('validationFailed', self);
 				
 				return false;
 			} else {
@@ -60,11 +52,6 @@
 			}
 			
 			return true;
-		},
-		
-		renewSession: function() {
-			this._dirty = false;
-			document.location.href = this.sessionPath;
 		},
 		
 		_freezeButtons: function(buttons) {
@@ -98,7 +85,7 @@
 		},
 		
 		showError: function() {},
-		isValid: function() { return false; },
+		isValid: function() { return true; },
 		validateForm: function(){}
 	});
 })(Backbone, _, $);
