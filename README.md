@@ -30,7 +30,7 @@ parentView = Backbone.Abide.extend({
 //Create child views as well. These can be regular views or more Abide parents.
 firstChild = Backbone.View.extend({ /* ... */ });
 secondChild = Backbone.View.extend({ /* ... */ });
-redhadedStepChild = Backbone.View.extend({ /* ... */ });
+redheadedStepChild = Backbone.View.extend({ /* ... */ });
 
 //Then instantiate the parent, passing in which views it should parent
 new parentView({ views: [firstChild, secondChild, redhadedStepChild] });
