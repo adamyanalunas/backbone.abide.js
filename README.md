@@ -17,7 +17,7 @@ Since Abide is an extension of a view you need to set up your parent views as Ab
 var parentView,
 	firstChild,
 	secondChild,
-	redhadedStepChild;
+	redheadedStepChild;
 
 //Create up your parent view and extend Abide instead of Backbone.View
 parentView = Backbone.Abide.extend({
@@ -33,7 +33,7 @@ secondChild = Backbone.View.extend({ /* ... */ });
 redheadedStepChild = Backbone.View.extend({ /* ... */ });
 
 //Then instantiate the parent, passing in which views it should parent
-new parentView({ views: [firstChild, secondChild, redhadedStepChild] });
+new parentView({ views: [firstChild, secondChild, redheadedStepChild] });
 ```
 
 promises()
