@@ -72,9 +72,8 @@
 				if(!$btn.data('original-text')) {
 					$btn.data('original-text', $btn.text());
 				}
-				
-				text || (text=$btn.data('original-text'));
-				$btn.text(text);
+
+				$btn.text(text || $btn.data('original-text'));
 			});
 		},
 		
