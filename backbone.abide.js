@@ -43,7 +43,6 @@
 					self._dirty = false;
 					self.trigger('done', e);
 				}).fail(function(jqXHR, textStatus, errorThrown) {
-					var response = $.parseJSON(jqXHR.responseText);
 					self.trigger('fail', jqXHR, textStatus, errorThrown);
 					if(self.disableWhileSubmitting) self._restoreButtons($submits);
 					self._setButtonText($submits);
