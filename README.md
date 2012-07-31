@@ -6,7 +6,9 @@ backbone.abide.js
 The lowdown
 -----------
 
-Abide extends Backbone.View so you get everything you'd expect from a standard view with the added ability to control child views and their AJAX saves. It includes hooks to make checking validation of models and data passes before submitting.
+Abide extends Backbone.View so you get everything you'd expect from a standard view with the added ability to control
+child views and their AJAX saves. It includes hooks to make checking validation of models and data passes before
+submitting.
 
 Setup
 -----
@@ -39,7 +41,9 @@ new parentView({ views: [firstChild, secondChild, redheadedStepChild] });
 promises()
 ----------
 
-The Abide vew needs to know when its children have finished submitting and this is done by providing a function to gather the promises of each child model's promise, supplied by jQuery's $.Deferred() object. Here's a fairly generic and easy implementation:
+The Abide vew needs to know when its children have finished submitting and this is done by providing a function to
+gather the promises of each child model's promise, supplied by jQuery's `$.Deferred()` object. Here's a fairly generic a
+nd easy implementation:
 
 ```javascript
 var sweetAbideView = Backbone.Abide.extend({
@@ -61,7 +65,10 @@ var sweetAbideView = Backbone.Abide.extend({
 });
 ```
 
-If your view deals with a collection there's a little more work needed as Backbone doesn't provide for a way to save a collection right out of the box. In my experience it's easier to assign a view to each model in the collection and use those as children in an Abide view. As seen in the script above you could create a method that would save each model in the collection and return those promises. Up to you, really.
+If your view deals with a collection there's a little more work needed as Backbone doesn't provide for a way to save
+a collection right out of the box. In my experience it's easier to assign a view to each model in the collection and
+use those as children in an Abide view. As seen in the script above you could create a method that would save each
+model in the collection and return those promises. Up to you, really.
 
 Events
 ------
@@ -77,7 +84,8 @@ this.on('failed', function(jqXHR, textStatus, errorThrown) { /* ... */ });
 
 ### validating
 
-This is called before validation is run. Useful for cleaning up error messages from previous validation runs or setting up any model pre-parsing that may be necessary.
+This is called before validation is run. Useful for cleaning up error messages from previous validation runs or
+setting up any model pre-parsing that may be necessary.
 
 ### validationFailed
 
@@ -85,7 +93,8 @@ Report errors, cancel animations, revert views, etc.
 
 ### done
 
-Triggered when all AJAX request for the parent have finished. Show a flash message, trigger a wrap-up function, or simply navigate to the next page.
+Triggered when all AJAX request for the parent have finished. Show a flash message, trigger a wrap-up function, or
+simply navigate to the next page.
 
 ### failed
 
@@ -96,24 +105,26 @@ Options
 
 ### disableWhileSubmitting
 
-> Default: true
+> Default: `true`
 
-A boolean flag that determines whether submission buttons are disabled while the AJAX calls are in progress. If set to true the buttons will be enabled on success or failure.
+A boolean flag that determines whether submission buttons are disabled while the AJAX calls are in progress. If set
+to `true` the buttons will be enabled on success or failure.
 
 ### submitText
 
 > Default: 'Submitting...'
 
-String that is used to replace the text in buttons or inputs while submission is in progress. Only used if disableWhileSubmitting is set to true.
+String that is used to replace the text in buttons or inputs while submission is in progress. Only used if
+`disableWhileSubmitting` is set to `true`.
 
 ### finishedText
 
 > Default: 'Finishing...'
 
-String that is used after all submissions are complete. Only used if disableWhileSubmitting is set to true.
+String that is used after all submissions are complete. Only used if `disableWhileSubmitting` is set to `true`.
 
 ### isValid()
 
-> Default: true
+> Default: `true`
 
-Method available for override to stop Abide from submitting anything if false is returned.
+Method available for override to stop Abide from submitting anything if `false` is returned.
